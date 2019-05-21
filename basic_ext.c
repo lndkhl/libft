@@ -6,9 +6,11 @@
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 11:21:44 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/05/20 13:21:48 by lnkambul         ###   ########.fr       */
+/*   Updated: 2019/05/21 15:57:32 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "basic_ext.h"
 
 size_t		ft_strlen(const char* s)
 {
