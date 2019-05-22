@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/21 10:55:21 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/05/22 14:54:04 by lnkambul         ###   ########.fr       */
+/*   Created: 2019/05/22 13:50:53 by lnkambul          #+#    #+#             */
+/*   Updated: 2019/05/22 14:59:39 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
+#ifndef LIBFT_H
+#define LIBFT_H
 
-int		main()
-{
-	int		i;
-	//char	c;
-	char	*str;
+#include <unistd.h>
+#include "string.h"
 
-	i = 23;
-	//c = 'y';
-	str = "boogle";
-	printf("i initialized to %i\n", i);
-	i = ft_strlen(str);
-	printf("length of str = %d characters.", i);
-	return (0);
-}	
+void		ft_putchar(char c);
+void		ft_putstr(const char *s);
+size_t		ft_strlen(const char *s);
+void		ft_putendl(const char *s);
+int			ft_toupper(int i);
+int			ft_tolower(int i);
+char		*ft_strcpy(char *dst, const char *src);
+void		*ft_memset(void *b, int c, size_t len);
+void		ft_bzero(void *s, size_t n);
+
+#endif

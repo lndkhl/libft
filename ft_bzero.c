@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/21 10:55:21 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/05/22 14:54:04 by lnkambul         ###   ########.fr       */
+/*   Created: 2019/05/22 14:48:48 by lnkambul          #+#    #+#             */
+/*   Updated: 2019/05/22 14:57:28 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int		main()
+void		bzero(void *s, size_t n)
 {
 	int		i;
-	//char	c;
-	char	*str;
 
-	i = 23;
-	//c = 'y';
-	str = "boogle";
-	printf("i initialized to %i\n", i);
-	i = ft_strlen(str);
-	printf("length of str = %d characters.", i);
-	return (0);
-}	
+	i = 0;
+	n *= 8;
+	while (n > 0)
+	{
+		s[i++] = 0;
+		n--;
+	}
+}

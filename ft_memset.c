@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/21 10:55:21 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/05/22 14:54:04 by lnkambul         ###   ########.fr       */
+/*   Created: 2019/05/22 14:27:15 by lnkambul          #+#    #+#             */
+/*   Updated: 2019/05/22 14:46:36 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int		main()
+void		*ft_memset(void *b, int c, size_t len)
 {
-	int		i;
-	//char	c;
-	char	*str;
-
-	i = 23;
-	//c = 'y';
-	str = "boogle";
-	printf("i initialized to %i\n", i);
-	i = ft_strlen(str);
-	printf("length of str = %d characters.", i);
-	return (0);
-}	
+	b[len--] = '\n';
+	while (len >= 0)
+		b[len--] = c;
+	return (b);
+}

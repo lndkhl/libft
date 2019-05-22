@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/21 10:55:21 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/05/22 14:54:04 by lnkambul         ###   ########.fr       */
+/*   Created: 2019/05/22 10:28:10 by lnkambul          #+#    #+#             */
+/*   Updated: 2019/05/22 14:12:54 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int		main()
+char		*ft_strcpy(char *dst, const char *src)
 {
 	int		i;
-	//char	c;
-	char	*str;
+	int		j;
 
-	i = 23;
-	//c = 'y';
-	str = "boogle";
-	printf("i initialized to %i\n", i);
-	i = ft_strlen(str);
-	printf("length of str = %d characters.", i);
-	return (0);
-}	
+	i = (int)ft_strlen(src);
+	j = (int)ft_strlen(dst);
+	if (i <= j)
+		j = 0;
+	while (j < i)
+	{
+		dst[j] = src[j];
+		j++;
+	}
+	dst[j] = '\0';
+	return (dst);
+}

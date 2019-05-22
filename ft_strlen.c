@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/21 10:55:21 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/05/22 14:54:04 by lnkambul         ###   ########.fr       */
+/*   Created: 2019/05/22 10:21:51 by lnkambul          #+#    #+#             */
+/*   Updated: 2019/05/22 10:27:57 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int		main()
+size_t		ft_strlen(const char* s)
 {
-	int		i;
-	//char	c;
-	char	*str;
+	size_t	i;
 
-	i = 23;
-	//c = 'y';
-	str = "boogle";
-	printf("i initialized to %i\n", i);
-	i = ft_strlen(str);
-	printf("length of str = %d characters.", i);
-	return (0);
-}	
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
