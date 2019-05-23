@@ -6,7 +6,7 @@
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 13:50:53 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/05/22 16:36:10 by lnkambul         ###   ########.fr       */
+/*   Updated: 2019/05/23 11:41:29 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,8 @@ char		*ft_strcpy(char *dst, const char *src);
 void		*ft_memset(void *b, int c, size_t len);
 void		ft_bzero(void *s, size_t n);
 int			ft_atoi(const char *s);
+int			ft_isalpha(int c);
+int			ft_isdigit(int c);
+int			ft_isalnum(int c);
 
 #endif
