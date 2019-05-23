@@ -6,15 +6,13 @@
 #    By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/21 14:40:09 by lnkambul          #+#    #+#              #
-#    Updated: 2019/05/21 16:49:12 by lnkambul         ###   ########.fr        #
+#    Updated: 2019/05/22 14:22:23 by lnkambul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-test:	main.o basic_ext.o
-	gcc -Wall -Werror -Wextra -o main.o basic_ext.o
+libft.a:	
+	gcc -Wall -Werror -Wextra -c ft_*.c libft.h
+	ar rc libft.a *.o
 
-main.o: main.c basic_ext.h
-	gcc -c main.c
-
-basic_ext.o: basic_ext.c basic_ext.h
-	gcc -c basic_ext.c 
+clean:
+	rm -f *.o *.h.gch
