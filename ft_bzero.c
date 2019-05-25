@@ -6,21 +6,25 @@
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 14:48:48 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/05/22 14:57:28 by lnkambul         ###   ########.fr       */
+/*   Updated: 2019/05/25 11:45:33 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		bzero(void *s, size_t n)
+void		ft_bzero(void *s, size_t n)
 {
 	int		i;
+	int		z;
+	char	*a;
 
 	i = 0;
-	n *= 8;
-	while (n > 0)
+	a = (char *)s;
+	z = (int)n;
+	z *= 8;
+	while (z > 0)
 	{
-		s[i++] = 0;
-		n--;
+		a[i++] = 0;
+		z--;
 	}
 }
