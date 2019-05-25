@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/21 10:55:21 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/05/25 09:51:53 by lnkambul         ###   ########.fr       */
+/*   Created: 2019/05/25 09:00:44 by lnkambul          #+#    #+#             */
+/*   Updated: 2019/05/25 09:26:54 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int		main()
+void		*memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
-	int		i;
-	//char	c;
-	char	*str;
+	int i;
+	char *s;
+	char *d;
 
-	i = 23;
-	//c = 'y';
-	str = "boogle";
-	printf("i initialized to %i\n", i);
-	i = ft_strlen(str);
-	printf("length of str = %d characters.\n\n", i);
-
-	char *s1;
-	char *s2;
-	s1 = "the quickening";
-	s2 = "beseige the thrones of reverance";
-	printf("s1: %s\ns2: %s\n", s1, s2);
-	s2 = memmove(s2, s1, 9);
-	printf("s1: %s\ns2: %s\n", s1, s2);
-
-	return (0);
-}	
+	i = 0;
+	s = (char *)src;
+	d = (char *)dst;
+	while ( i < n)
+	{
+		d[i] = s[i];
+		i++;
+	}
+	return (d);
+}
