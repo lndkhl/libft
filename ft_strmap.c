@@ -6,13 +6,13 @@
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 11:44:24 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/05/29 09:36:23 by lnkambul         ###   ########.fr       */
+/*   Updated: 2019/06/01 14:44:41 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strmap(const char *s, char (*f)(char *))
+char		*ft_strmap(const char *s, char (*f)(char))
 {
 	int		i;
 	char	*n;
@@ -20,6 +20,9 @@ char		*ft_strmap(const char *s, char (*f)(char *))
 	i = 0;
 	n = ft_strdup(s);
 	while (n[i] != '\0')
-		n[i] = (*f)(n[i++]);
+	{
+		n[i] = (*f)(n[i]);
+		i++;
+	}
 	return (n);
 }
