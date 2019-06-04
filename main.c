@@ -6,13 +6,19 @@
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 10:55:21 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/02 14:38:15 by lnkambul         ###   ########.fr       */
+/*   Updated: 2019/06/04 16:41:03 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+#include <stdio.h>
+
 int		main()
 {
+	int i;
+
+	i = atoi("123,456,7");
+	printf("%i", i);
 	return (0);
 }	

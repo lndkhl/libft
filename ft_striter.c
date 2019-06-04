@@ -6,18 +6,19 @@
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 10:13:01 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/01 15:06:48 by lnkambul         ###   ########.fr       */
+/*   Updated: 2019/06/04 17:22:54 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_striter(char *s, void (*f)(char *))
+void			ft_striter(char *s, void (*f)(char *))
 {
-	size_t	i;
-
-	i = ft_strlen(s);
-	i--;
-	while (i > 0)
-		(*f)(&(s[i--]));
+	if (s)
+	{
+		size_t	i;
+		i = (size_t)ft_strlen(s);
+		while (i >= 0)
+			(*f)(&(s[--i]));
+	}
 }

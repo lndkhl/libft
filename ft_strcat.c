@@ -6,7 +6,7 @@
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 10:46:25 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/01 14:19:07 by lnkambul         ###   ########.fr       */
+/*   Updated: 2019/06/04 17:11:11 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ char		*ft_strcat(char *s1, const char * s2)
 	j = ft_strlen(s2);
 	j += i;
 	s3 = (char *)malloc((sizeof(char) * (j + 1)));
+	if (!s3)
+		return (NULL);
 	i = 0;
 	j = 0;
 	while (s1[i] != '\0')
@@ -32,5 +34,6 @@ char		*ft_strcat(char *s1, const char * s2)
 	while (s2[j] != '\0')
 		s3[i++] = s2[j++];
 	s1 = s3;
+	s1[j] = '\0';
 	return (s1);
 }

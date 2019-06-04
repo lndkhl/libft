@@ -6,16 +6,18 @@
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 10:06:57 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/03 18:36:04 by lnkambul         ###   ########.fr       */
+/*   Updated: 2019/06/04 17:16:40 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_strclr(char *s)
+void			ft_strclr(char *s)
 {
-	size_t	i;
-
-	i = (size_t)ft_strlen(s);
-	ft_memset(s, '\0', i);
+	if (s)
+	{
+		size_t	i;
+		i = (size_t)ft_strlen(s);
+		ft_memset(s, '\0', i);
+	}
 }

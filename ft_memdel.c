@@ -6,7 +6,7 @@
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 09:29:31 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/03 18:38:28 by lnkambul         ###   ########.fr       */
+/*   Updated: 2019/06/04 17:27:20 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void		ft_memdel(void **ap)
 {
-	ft_strclr(*ap);
-	free(*ap);
+	if (*ap)
+	{
+		*ap = NULL;
+		free(*ap);
+	}
 }
