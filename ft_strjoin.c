@@ -6,7 +6,7 @@
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 09:31:04 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/04 15:48:36 by lnkambul         ###   ########.fr       */
+/*   Updated: 2019/06/05 18:11:22 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ char		*ft_strjoin(const char *s1, const char *s2)
 	{
 		i = (size_t)ft_strlen(s1);
 		i += (size_t)ft_strlen(s2);
-		n = ft_strnew(++i);
+		if(!(n = ft_strnew(++i)))
+			return (NULL);
 		h = (size_t)ft_strlen(s1);
 		i = 0;
 		while (i < h)

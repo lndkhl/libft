@@ -6,38 +6,45 @@
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/23 13:18:16 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/05/25 11:21:50 by lnkambul         ###   ########.fr       */
+/*   Updated: 2019/06/05 18:24:53 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_itoa(int i)
+char					*ft_itoa(int i)
 {
-	char	*r;
-	int		c;
-	int		s;
+	char				*r;
+	int					c;
+	int					a;
 
-	r = (char *)malloc(sizeof(char) * 12);
 	c = 0;
-	s = 1;
+	a = i;
+	if (a < 0)
+	{
+		a *= -1;
+		c++;
+	}	
+	while (a > 0)
+	{
+		a = a / 10;
+		c++;
+	}
+	r = (char *)malloc(sizeof(char) * (c + 1));
+	if (!r)
+		return (NULL);
+	ft_strclr(r);
+	c--;
+	a = i;
 	if (i < 0)
 	{
-		s = -1;
-		i *= -1;
+		r[0] = '-';
+		a *= -1;
 	}
-	while (c < 12)
-		r[c++] = '\0';
-	c = 11;
-	while (i > 0)
+	while (a > 0)
 	{
-		r[c--] = i % 10;
-		i /= 10;
+		r[c--] = a % 10;
+		a = a / 10;
 	}
-	if (s < 0)
-		r[i] = '-';
-	while (c < 12)
-		r[i++] = r[c++];
-	r[i] = '\0';
 	return (r);
 }

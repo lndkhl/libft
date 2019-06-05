@@ -6,7 +6,7 @@
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 09:55:59 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/04 17:38:15 by lnkambul         ###   ########.fr       */
+/*   Updated: 2019/06/05 17:09:23 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,17 @@ char				*ft_strtrim(const char *s)
 		i++;
 		w++;
 	}
-	j = (unsigned int)ft_strlen(s) - 1;
-	while ((s[j] == ' ' || s[j] == '\t' || s[j] == '\n') && (j > i))
+	j = (unsigned int)ft_strlen(s);
+	if (s[i] != '\0')
 	{
 		j--;
-		w++;
+		while ((s[j] == ' ' || s[j] == '\t' || s[j] == '\n') && (j > i))
+		{
+			j--;
+			w++;
+		}	
+		j = (unsigned int)ft_strlen(s) - w;
 	}
-	j = (unsigned int)ft_strlen(s) - w;
 	n = ft_strnew((size_t)j);
 	if (!n)
 		return (NULL);
