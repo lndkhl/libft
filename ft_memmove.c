@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   memmove.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/22 15:51:34 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/06 14:13:23 by lnkambul         ###   ########.fr       */
+/*   Created: 2019/06/06 14:43:59 by lnkambul          #+#    #+#             */
+/*   Updated: 2019/06/06 14:51:36 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int				ft_atoi(const char *s)
+void				*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int			n;
-	int			i;
-	int			r;
-	char		*q;
+	size_t			l;
+	unsigned char	*s;
+	unsigned char	*d;
 
-	i = 0;
-	n = 1;
-	r = 0;
-	q = ft_sr(s);
-	if (!q)
-		return (0);
-	if (q[i] == '-' || q[i] == '+')
+	l = 0;
+	s = (unsigned char *)src;
+	d = (unsigned char *)dst;
+	while ((l < len) && (src || dst))
 	{
-		if (q[i] == '-')
-			n = -1;
-		i++;
+		d[l] = s[l];
+		l++;
 	}
-	while (ft_isdigit(s[i]))
-	{	
-		r = (r * 10) + (q[i] - 48);
-		i++;
-	}
-	return (r * n);
+	return (dst);
 }

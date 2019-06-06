@@ -1,40 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/22 15:51:34 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/06 14:13:23 by lnkambul         ###   ########.fr       */
+/*   Created: 2019/06/06 15:03:08 by lnkambul          #+#    #+#             */
+/*   Updated: 2019/06/06 15:11:29 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int				ft_atoi(const char *s)
+int					ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int			n;
-	int			i;
-	int			r;
-	char		*q;
+	unsigned char	*a;
+	unsigned char	*b;
+	size_t			i;
 
 	i = 0;
-	n = 1;
-	r = 0;
-	q = ft_sr(s);
-	if (!q)
-		return (0);
-	if (q[i] == '-' || q[i] == '+')
-	{
-		if (q[i] == '-')
-			n = -1;
+	a = (unsigned char *)s1;
+	b = (unsigned char *)s2;
+	while ((i < n) && (a[i] == b[i]))
 		i++;
-	}
-	while (ft_isdigit(s[i]))
-	{	
-		r = (r * 10) + (q[i] - 48);
-		i++;
-	}
-	return (r * n);
+	return ((int)(a[i] - b[i]));
 }
