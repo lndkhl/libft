@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   strmapi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/27 11:39:40 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/08 15:42:12 by lnkambul         ###   ########.fr       */
+/*   Created: 2019/06/08 13:05:26 by lnkambul          #+#    #+#             */
+/*   Updated: 2019/06/08 15:20:24 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strchr(const char *s, int c)
+char				*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int		i;
-	char	n;
+	unsigned int	i;
+	char			*t;
 
-	i = 0;
-	n = (char)c;
-	if (n == '\0')
-		return (&(s[ft_strlen(s)]));
-	while (s[i] != '\0' && s[i] != n)
-		i++;
-	if (s[i] == '\0')
+	if (!s || !f)
 		return (NULL);
-	return (&s[i]);
+	i = 0;
+	t = ft_strdup(s);
+	if (!t)
+		return (NULL);
+	while (t[i] != '\0')
+	{
+		f((i),(t[i]));
+		i++;
+	}
+	return (t);
 }

@@ -6,7 +6,7 @@
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 10:46:25 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/06 14:02:14 by lnkambul         ###   ########.fr       */
+/*   Updated: 2019/06/06 18:34:14 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ char		*ft_strcat(char *s1, const char * s2)
 	int		j;
 	char	*s3;
 
-	i = (int)ft_strlen(s1);
-	j = (int)ft_strlen(s2);
+	i = 0;
+	j = 0;
+	i = ft_strlen(s1);
+	j = ft_strlen(s2);
 	j += i;
 	s3 = (char *)malloc((sizeof(char) * (j + 1)));
 	if (!s3)

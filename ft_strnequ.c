@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/27 11:39:40 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/08 15:42:12 by lnkambul         ###   ########.fr       */
+/*   Created: 2019/06/08 14:29:21 by lnkambul          #+#    #+#             */
+/*   Updated: 2019/06/08 14:48:16 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strchr(const char *s, int c)
+int			ft_strnequ(const char *s1, const char *s2, size_t n)
 {
-	int		i;
-	char	n;
-
-	i = 0;
-	n = (char)c;
-	if (n == '\0')
-		return (&(s[ft_strlen(s)]));
-	while (s[i] != '\0' && s[i] != n)
-		i++;
-	if (s[i] == '\0')
-		return (NULL);
-	return (&s[i]);
+	if (!s1 || !s2)
+		return (0);
+	if (ft_strncmp(s1, s2, n) == 0)
+			return (1);
+	return (0);
 }

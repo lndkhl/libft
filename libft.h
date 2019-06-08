@@ -6,7 +6,7 @@
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 10:03:39 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/06 15:12:10 by lnkambul         ###   ########.fr       */
+/*   Updated: 2019/06/08 15:34:04 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,25 @@ void	ft_putstr(const char *s);
 void	ft_putstr_fd(const char *s, int fd);
 char	*ft_sr(const char *s);
 char	*ft_strcat(char *s1, const char *s2);
+char	*ft_strchr(const char *s, int c);
 void	ft_strclr(char *s);
 int		ft_strcmp(const char *s1, const char *s2);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strcpy(char *d, const char *s);
 void	ft_strdel(char **s);
+
 char	*ft_strdup(const char *s);
 int		ft_strequ(const char *s1, const char *s2);
-
+int		ft_strnequ(const char *s1, const char *s2, size_t n);
 void	ft_striter(char *s, void (*f)(char *));
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 char	*ft_strjoin(const char *s1, const char *s2);
 size_t	ft_strlen(const char *s);
 char	*ft_strmap(const char *s, char (*f)(char));
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 char	*ft_strnew(size_t size);
+
+char	*ft_strsub(const char *s, unsigned int start, size_t n);
 char	*ft_strtrim(const char *s);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
