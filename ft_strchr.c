@@ -6,7 +6,7 @@
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 11:39:40 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/08 15:42:12 by lnkambul         ###   ########.fr       */
+/*   Updated: 2019/06/09 11:54:23 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,16 @@ char		*ft_strchr(const char *s, int c)
 {
 	int		i;
 	char	n;
+	char	*p;
 
+	p = (char *)ft_strdup(s);
 	i = 0;
 	n = (char)c;
 	if (n == '\0')
-		return (&(s[ft_strlen(s)]));
-	while (s[i] != '\0' && s[i] != n)
+		return (&(p[ft_strlen(p)]));
+	while (p[i] != '\0' && p[i] != n)
 		i++;
-	if (s[i] == '\0')
+	if (p[i] == '\0')
 		return (NULL);
-	return (&s[i]);
+	return (&p[i]);
 }
