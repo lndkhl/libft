@@ -6,7 +6,7 @@
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/23 13:18:16 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/09 18:30:10 by lnkambul         ###   ########.fr       */
+/*   Updated: 2019/06/10 13:44:41 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,24 @@
 char					*ft_itoa(int i)
 {
 	char				*r;
-	int					c;
-	int					a;
+	unsigned int		c;
+	long 				a;
 
 	c = 0;
-	a = i;
-	while (a != 0)
+	a = (long)i;
+	a *= (a < 0) ? -1 : 1;
+	while (a > 0)
 	{
 		a /= 10;
 		c++;
 	}
-	r = (i < 0) ? ft_strnew(c) : ft_strnew(++c);
-	if (!r)
+	if (!(r = (i <= 0) ? ft_strnew(++c) : ft_strnew(c)))
 		return (NULL);
-	if (i < 0)
-		r[0] = '-';
-	while (i != 0)
+	r[0] = (i < 0) ? '-': r[0];
+	r = (i == 0) ? "0" : r;
+	a = (long)i;
+	a *= (a < 0) ? -1 : 1;
+	while (a > 0)
 	{
 		r[--c] = (a % 10) + '0';
 		a /= 10;

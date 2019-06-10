@@ -6,7 +6,7 @@
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/06 14:13:33 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/09 16:34:36 by lnkambul         ###   ########.fr       */
+/*   Updated: 2019/06/10 17:32:13 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void				*ft_memccpy(void *dst, const void *src, int c, size_t n)
 	while ((i < n) && (src || dst))
 	{
 		d[i] = s[i];
-		if (s[i] == c)
+		if (s[i] == e)
 			return (&d[++i]);
 		i++;
 	}

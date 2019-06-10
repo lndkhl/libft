@@ -5,20 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/21 10:55:21 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/04 16:41:03 by lnkambul         ###   ########.fr       */
+/*   Created: 2019/06/10 09:38:23 by lnkambul          #+#    #+#             */
+/*   Updated: 2019/06/10 17:38:18 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-#include <stdio.h>
-
-int		main()
+int			main()
 {
-	int i;
-
-	i = atoi("123,456,7");
-	printf("%i", i);
+	char	*i = ft_itoa(-2147483648);
+	char 	*j = ft_itoa(156);
+	char	*k = ft_itoa(-0);
+	char	*r = "8";
+	int		a;
+	char	*s = " aefea af dfgf asssw dfg ";
+	char	**ar = ft_strsplit(s, ' ');
+	
+	a = 0;
+	while (ar[a])
+		ft_putendl(ar[a++]);
+	ft_putendl(i);
+	ft_putendl(j);
+	ft_putendl(k);
+	a = ft_atoi(i);
+	ft_putnbr(a);
+	ft_putstr("\n\n");
+	ft_putnbr((int)ft_strlen(r));
 	return (0);
-}	
+}

@@ -6,7 +6,7 @@
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/30 11:51:50 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/09 18:54:30 by lnkambul         ###   ########.fr       */
+/*   Updated: 2019/06/10 17:19:32 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,47 @@
 char				**ft_strsplit(const char *s, char c)
 {
 	char			**arr;
-	unsigned int	w;
+	char			**ptr;
+	unsigned int	i;
+	unsigned int	j;
+	unsigned int	k;
 
-	while (*s)
+	i = 0;
+	j = 0;
+	k = 0;
+	if (!s)
+		return (NULL);
+	while (s[i] != '\0')
 	{
-		if (*s == c)
+		if (s[i] != c)
 		{
-			w++;
-			while (*s == c)
-				*s++;
+			j++;
+			while (s[i] != c)
+				i++;
 		}
-		*s++;
+		i++;
 	}
-	arr = (char **)malloc(sizeof(char *) * w);
-	while (
-			
+	arr = (char **)malloc(sizeof(char *) * (j + 1));
+	if (!arr)
+		return (NULL);
+	ptr = arr;
+	i = 0;
+	j = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] != c)
+		{
+			k = i;
+			while (s[i] != c)
+			{
+				i++;
+				j++;
+			}
+			*arr++ = ft_strsub(s, k, j);
+			j = 0;
+		}
+		i++;
+	}
+	*arr = NULL;
+	return (ptr);
+}
