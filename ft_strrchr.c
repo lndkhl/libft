@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/06 15:03:08 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/11 08:46:35 by lnkambul         ###   ########.fr       */
+/*   Created: 2019/06/11 09:13:44 by lnkambul          #+#    #+#             */
+/*   Updated: 2019/06/11 09:30:06 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int					ft_memcmp(const void *s1, const void *s2, size_t n)
+char		*ft_strrchr(const char *s, int c)
 {
-	unsigned char	*a;
-	unsigned char	*b;
-	unsigned int	i;
+	size_t	i;
+	char	n;
 
-	a = (unsigned char *)s1;
-	b = (unsigned char *)s2;
-	i = 0;
-	while ((n > 0) && (a[i] == b[i]))
-	{
-		i++;
-		n--;
-	}
-	if (i == 0 || n == 0)
-		return (0);
-	return ((int)(a[i] - b[i]));
+	i = ft_strlen(s);
+	n = (char)c;
+	if (i == 0 && n != '\0')
+		return (NULL);
+	if (n == '\0')
+		return ((char *)&s[i]);
+	while (i > 0 && s[i] != n)
+		i--;
+	if (i == 0 && s[i] != n)
+		return (NULL);
+	return ((char *)&s[i]);
 }
