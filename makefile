@@ -6,7 +6,7 @@
 #    By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/21 14:40:09 by lnkambul          #+#    #+#              #
-#    Updated: 2019/06/11 12:09:11 by lnkambul         ###   ########.fr        #
+#    Updated: 2019/06/11 18:50:28 by lnkambul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,4 +44,4 @@ clean:
 fclean:
 	${RM} ${OBJECTS} ${NAME}
 
-re: $(OBJECTS)
+re: fclean all

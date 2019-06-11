@@ -6,7 +6,7 @@
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 14:35:00 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/08 14:57:45 by lnkambul         ###   ########.fr       */
+/*   Updated: 2019/06/11 18:03:37 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ int					ft_strncmp(const char *s1, const char *s2, size_t n)
 		i++;
 		n--;
 	}
-	if (a[i]== '\0' && b[i] != '\0')
+	if ((a[i]== '\0' && (b[i] != '\0') && n > 0))
 		return (-1);
-	else if (a[i] != '\0' && b[i] == '\0')
+	else if ((a[i] != '\0' && b[i] == '\0') && n > 0)
 		return (1);
 	return 0;
 }
