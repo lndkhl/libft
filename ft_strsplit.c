@@ -6,56 +6,62 @@
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/30 11:51:50 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/10 17:19:32 by lnkambul         ###   ########.fr       */
+/*   Updated: 2019/06/12 18:43:36 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+size_t				ft_wordcount(const char *i, char c)
+{
+	size_t			a;
+	char			*p;
+
+	a = 0;
+	p = (char *)i;
+	while (*p++)
+	{
+		if (*p != c && (*(p + 1) == '\0' || *(p + 1) == c))
+			a++;
+	}
+	return (a);
+}
+
+char				**ft_poparray(char **ptr, char *p, char c)
+{
+	size_t			i;
+
+	while (*p++)
+	{
+		if (*p != c)
+		{
+			i = 0;
+			while (p[i] != c)
+				i++;
+			if (!(*ptr++ = ft_strsub(p, *p, i)))
+				return (NULL);
+			while (i-- > 0)
+				p += i;
+		}
+	}
+	*ptr = NULL;
+	return (ptr);
+}
+
 char				**ft_strsplit(const char *s, char c)
 {
 	char			**arr;
 	char			**ptr;
-	unsigned int	i;
-	unsigned int	j;
-	unsigned int	k;
+	char			*p;
+	size_t			i;
 
-	i = 0;
-	j = 0;
-	k = 0;
-	if (!s)
+	if (!*s)
 		return (NULL);
-	while (s[i] != '\0')
-	{
-		if (s[i] != c)
-		{
-			j++;
-			while (s[i] != c)
-				i++;
-		}
-		i++;
-	}
-	arr = (char **)malloc(sizeof(char *) * (j + 1));
+	i = ft_wordcount(s, c);
+	p = (char*)s;
+	arr = (char **)malloc(sizeof(char *) * (i + 1));
 	if (!arr)
 		return (NULL);
 	ptr = arr;
-	i = 0;
-	j = 0;
-	while (s[i] != '\0')
-	{
-		if (s[i] != c)
-		{
-			k = i;
-			while (s[i] != c)
-			{
-				i++;
-				j++;
-			}
-			*arr++ = ft_strsub(s, k, j);
-			j = 0;
-		}
-		i++;
-	}
-	*arr = NULL;
-	return (ptr);
+	return (ft_poparray(ptr, p, c));
 }
