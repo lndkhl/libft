@@ -6,7 +6,7 @@
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/30 11:51:50 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/12 18:43:36 by lnkambul         ###   ########.fr       */
+/*   Updated: 2019/06/13 15:59:33 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,13 @@ char				**ft_poparray(char **ptr, char *p, char c)
 		if (*p != c)
 		{
 			i = 0;
-			while (p[i] != c)
+			while (p[i] != c && p[i] != '\0')
 				i++;
 			if (!(*ptr++ = ft_strsub(p, *p, i)))
 				return (NULL);
-			while (i-- > 0)
-				p += i;
+			p += i;
 		}
 	}
-	*ptr = NULL;
 	return (ptr);
 }
 
@@ -58,10 +56,12 @@ char				**ft_strsplit(const char *s, char c)
 	if (!*s)
 		return (NULL);
 	i = ft_wordcount(s, c);
-	p = (char*)s;
-	arr = (char **)malloc(sizeof(char *) * (i + 1));
-	if (!arr)
+	p = (char *)s;
+	if (!(arr = (char **)malloc(sizeof(char *) * (i + 1))))
 		return (NULL);
 	ptr = arr;
-	return (ft_poparray(ptr, p, c));
+	if (!(ft_poparray(ptr, p, c)))
+			return (NULL);
+	free (ptr);
+	return (arr);
 }
