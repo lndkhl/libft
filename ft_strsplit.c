@@ -6,7 +6,7 @@
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/30 11:51:50 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/13 18:52:25 by lnkambul         ###   ########.fr       */
+/*   Updated: 2019/06/15 05:02:27 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,55 +14,62 @@
 
 size_t				ft_wordcount(const char *i, char c)
 {
+	size_t			b;
 	size_t			a;
+	size_t			j;
 	char			*p;
 
+	b = 0;
 	a = 0;
 	p = (char *)i;
-	while (*p++)
+	while (p[b++])
 	{
-		if (*p != c && (*(p + 1) == '\0' || *(p + 1) == c))
+		j = 0;
+		if (p[b] != c)
 			a++;
+		while (p[b + j] != c && p[b + j] != '\0')
+			j++;
+		b += j;
 	}
 	return (a);
 }
 
-char				**ft_poparray(char **ptr, char *p, char c)
+char				**ft_poparray(char **ptr, const char *p, char c, size_t w)
 {
 	size_t			i;
+	unsigned int	j;
+	unsigned int	k;
 
-	while (*p)
+	j = 0;
+	k = 0;
+	while (p[k])
 	{
-		if (*p != c)
+		if (p[k] != c && j < w)
 		{
 			i = 0;
-			while (p[i] != c && p[i] != '\0')
+			while (p[k + i] != c && p[k + i] != '\0')
 				i++;
-			if (!(*ptr++ = ft_strsub(p, 0, i)))
+			if (!(ptr[j++] = ft_strsub(p, k, i)))
 				return (NULL);
-			p += i;
+			k += i;
 		}
-		p++;
+		k++;
 	}
-	*ptr = NULL;
+	ptr[j] = NULL;
 	return (ptr);
 }
 
 char				**ft_strsplit(const char *s, char c)
 {
 	char			**arr;
-	char			**ptr;
-	char			*p;
 	size_t			i;
 
 	if (!s)
 		return (NULL);
 	i = ft_wordcount(s, c);
-	p = (char *)s;
 	if (!(arr = (char **)malloc(sizeof(char *) * (i + 1))))
 		return (NULL);
-	ptr = arr;
-	if (!(ptr = ft_poparray(ptr, p, c)))
+	if (!(arr = ft_poparray(arr, s, c, i)))
 			return (NULL);
 	return (arr);
 }
