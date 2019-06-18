@@ -1,34 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/16 15:14:08 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/18 13:21:37 by lnkambul         ###   ########.fr       */
+/*   Created: 2019/06/18 13:25:40 by lnkambul          #+#    #+#             */
+/*   Updated: 2019/06/18 14:03:32 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list			*ft_lstnew(void const *content, size_t content_size)
+void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
-	t_list		*newlist;
-
-	newlist = NULL;
-	newlist = malloc(sizeof(t_list));
-	if (!content)
-	{
-		newlist->content = NULL;
-		newlist->content_size = 0;
-	}
-	else
-	{
-		newlist->content = (void *)ft_memalloc(content_size);
-		newlist->content = (void *)content;
-		newlist->content_size = content_size;
-	}
-	newlist->next = NULL;
-	return (newlist);
+	(*del)((*alst)->content, (*alst)->content_size);
+	ft_memdel((void **)alst);
 }
