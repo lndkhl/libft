@@ -6,7 +6,7 @@
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 09:19:40 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/08 14:18:18 by lnkambul         ###   ########.fr       */
+/*   Updated: 2019/06/19 14:39:13 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void		*ft_memalloc(size_t size)
 {
 	char	*n;
 
-	n = malloc(size);
+	n = (char *)malloc(size);
 	if (!n)
 		return (NULL);
 	ft_bzero(n, size);
-	return (n);	
+	return (n);
 }

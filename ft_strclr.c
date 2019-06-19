@@ -6,7 +6,7 @@
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 10:06:57 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/04 17:16:40 by lnkambul         ###   ########.fr       */
+/*   Updated: 2019/06/19 13:03:59 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 void			ft_strclr(char *s)
 {
+	size_t	i;
+
 	if (s)
 	{
-		size_t	i;
 		i = (size_t)ft_strlen(s);
 		ft_memset(s, '\0', i);
 	}

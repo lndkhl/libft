@@ -6,7 +6,7 @@
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 13:05:26 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/09 15:19:46 by lnkambul         ###   ########.fr       */
+/*   Updated: 2019/06/19 13:19:20 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	p = t;
 	while (t[i])
 	{
-		t[i] = (*f)((i),(t[i]));
+		t[i] = (*f)((i), (t[i]));
 		i++;
 	}
 	return (p);

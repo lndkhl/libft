@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_whitespace_skipper.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/22 11:54:52 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/19 13:52:10 by lnkambul         ###   ########.fr       */
+/*   Created: 2019/06/19 13:36:39 by lnkambul          #+#    #+#             */
+/*   Updated: 2019/06/19 14:18:03 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(const char *s)
+char	*ft_whitespace_skipper(char *p)
 {
-	char	*p;
-
-	p = (char *)s;
-	while (*p != '\0')
-		ft_putchar(*p++);
-}
+	while (*p == 32 || *p == '\t' || *p == '\n'\
+			|| *p == '\r' || *p == '\f' || *p == '\v')
+	   p++;
+	return (p);
+}	

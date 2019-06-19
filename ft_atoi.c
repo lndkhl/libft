@@ -6,7 +6,7 @@
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 15:51:34 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/10 14:03:36 by lnkambul         ###   ########.fr       */
+/*   Updated: 2019/06/19 14:55:22 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,23 @@
 int				ft_atoi(const char *s)
 {
 	int			n;
-	int			i;
 	long long	r;
+	char		*p;
 
-	i = 0;
 	n = 1;
 	r = 0;
-	while (s[i] == 32 || s[i] == '\t' || s[i] == '\n' || s[i] == '\r' || s[i] == '\f' || s[i] == '\v')
-		i++;
-	if (s[i] == '-' || s[i] == '+')
+	p = (char *)s;
+	p = ft_whitespace_skipper(p);
+	if (*p == '-' || *p == '+')
 	{
-		if (s[i] == '-')
-			n = -1;
-		i++;
+		if (*p == '-')
+			n = n * -1;
+		p++;
 	}
-	while (ft_isdigit(s[i]))
-	{	
-		r = (r * 10) + (s[i] - 48);
-		if (r > 2147483648 && n == -1)
-			return (0);
-		else if (r > 2147483647 && n == 1)
-			return (-1);
-		i++;
+	while (ft_isdigit(*p))
+	{
+		r = (r * 10) + ((*p) - 48);
+		p++;
 	}
 	return (r * n);
 }

@@ -6,7 +6,7 @@
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 09:55:59 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/10 17:23:26 by lnkambul         ###   ########.fr       */
+/*   Updated: 2019/06/19 14:13:49 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char				*ft_strtrim(const char *s)
 {
 	unsigned int	ws;
 	unsigned int	i;
-	unsigned int	j;
+	size_t			j;
 	char			*n;
 
 	if (!s)
@@ -30,15 +30,11 @@ char				*ft_strtrim(const char *s)
 		i++;
 		ws++;
 	}
-	j = (unsigned int)ft_strlen(s) - 1;
-	while ((s[j] == 32 || s[j] == '\t' || s[j] == '\n') && (j > i))
-	{
-		j--;
+	j = ft_strlen(s) - 1;
+	while ((s[j] == 32 || s[j] == '\t' || s[j] == '\n') && (j-- > i))
 		ws++;
-	}
 	j = (unsigned int)ft_strlen(s) - ws;
-	n = ft_strsub(s, i, j);
-	if (!n)
+	if (!(n = ft_strsub(s, i, j)))
 		return (NULL);
 	return (n);
 }

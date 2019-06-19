@@ -6,18 +6,18 @@
 /*   By: lnkambul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/30 11:51:50 by lnkambul          #+#    #+#             */
-/*   Updated: 2019/06/15 05:02:27 by lnkambul         ###   ########.fr       */
+/*   Updated: 2019/06/19 13:24:19 by lnkambul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t				ft_wordcount(const char *i, char c)
+static size_t	ft_wordcount(const char *i, char c)
 {
-	size_t			b;
-	size_t			a;
-	size_t			j;
-	char			*p;
+	size_t		b;
+	size_t		a;
+	size_t		j;
+	char		*p;
 
 	b = 0;
 	a = 0;
@@ -34,7 +34,7 @@ size_t				ft_wordcount(const char *i, char c)
 	return (a);
 }
 
-char				**ft_poparray(char **ptr, const char *p, char c, size_t w)
+static char		**ft_poparray(char **ptr, const char *p, char c, size_t w)
 {
 	size_t			i;
 	unsigned int	j;
@@ -59,10 +59,10 @@ char				**ft_poparray(char **ptr, const char *p, char c, size_t w)
 	return (ptr);
 }
 
-char				**ft_strsplit(const char *s, char c)
+char			**ft_strsplit(const char *s, char c)
 {
-	char			**arr;
-	size_t			i;
+	char		**arr;
+	size_t		i;
 
 	if (!s)
 		return (NULL);
@@ -70,6 +70,6 @@ char				**ft_strsplit(const char *s, char c)
 	if (!(arr = (char **)malloc(sizeof(char *) * (i + 1))))
 		return (NULL);
 	if (!(arr = ft_poparray(arr, s, c, i)))
-			return (NULL);
+		return (NULL);
 	return (arr);
 }
